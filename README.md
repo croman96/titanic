@@ -1,2 +1,3 @@
-# titanic
-Titanic (Kaggle) using logistic regression (sigmoid function) and gradient descent (cross-entropy function) for optimization.
+# Titanic
+
+Kaggle solution using logistic regression (sigmoid function) for predictions and gradient descent (cross-entropy function) for optimization.
