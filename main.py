@@ -59,10 +59,6 @@ graph_age.map(plt.hist, 'Age', bins=10)
 graph_pclass = sbn.FacetGrid(train_data, col='Survived')
 graph_pclass.map(plt.hist, 'Pclass', bins=10)
 
-grid = sbn.FacetGrid(train_data, row='Pclass', col='Sex', height=2.5, aspect=1.5)
-grid.map(plt.hist, 'Age', alpha=.5, bins=20)
-grid.add_legend()
-
 # Drop cabin.
 
 train_data = train_data.drop(['Cabin'], axis=1)
@@ -256,12 +252,12 @@ def gradient_descent(params, samples, labels, learning_rate):
         # Update parameters given the learning rate and the gradient.
         temp[j] = params[j] - learning_rate * (1/len(samples)) * acum
     return temp
-
+'''
 # Train
 
 # Guys we can play with.
-learning_rate = .09
-epochs = 100
+learning_rate = .05
+epochs = 3000
 
 # Random parameters.
 params = []
@@ -295,10 +291,10 @@ plt.plot(graph_errors)
 plt.title('Training Error')
 plt.ylabel('error')
 plt.xlabel('epoch')
-
+'''
 # Test
 
-test_parameters = [-0.7526008958029214, 2.1416580014276483, 0.27444561782130017, -0.0815917688341737, 0.2796143048626711, 0.41589368085976425, 0.11641625837207875, -0.2988288903831068]
+test_parameters = [-0.7559236308729694, 2.255160806671083, 0.28939615321724843, -0.08266902275063291, 0.26843528110325704, 0.39879200609912974, 0.1442149360189284, -0.31317974627250483]
 test_set = test_data.drop("PassengerId", axis=1).copy()
 test_set_rows = test_set.apply(lambda y: y.tolist(), axis=1)
 
@@ -312,7 +308,7 @@ submission = pd.DataFrame({
     "Survived": results
 })
 
-# submission.to_csv('data/submission.csv', index=False)
+submission.to_csv('data/submission.csv', index=False)
 
 print(submission)
 
